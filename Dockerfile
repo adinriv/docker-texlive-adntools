@@ -4,7 +4,10 @@ MAINTAINER adin
 RUN (mkdir -p `kpsewhich -var-value TEXMFHOME`/tex/latex || true) &&\
     # Get the normal repos
     git clone https://gitlab.com/adin/mcv-academic.git `kpsewhich -var-value TEXMFHOME`/tex/latex/mcv-academic &&\
-    git clone https://gitlab.com/adin/tikz-fa.git `kpsewhich -var-value TEXMFHOME`/tex/latex/tikz-fa &&\
+
+    wget https://gitlab.com/adin/tikz-fa/builds/artifacts/master/download?job=build -O `kpsewhich -var-value TEXMFHOME`/tex/latex/artifacts.zip &&\
+    unzip `kpsewhich -var-value TEXMFHOME`/tex/latex/artifacts.zip -d `kpsewhich -var-value TEXMFHOME`/tex/latex/tikz-fa &&\
+    rm `kpsewhich -var-value TEXMFHOME`/tex/latex/artifacts.zip &&\
 
     # Get the adn-latex repos
     git clone https://gitlab.com/adn-latex/adn-latex.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adn-latex &&\
