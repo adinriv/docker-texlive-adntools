@@ -8,7 +8,6 @@ RUN (mkdir -p `kpsewhich -var-value TEXMFHOME`/tex/latex || true) &&\
 
     # Get the adn-latex repos
     git clone https://gitlab.com/adn-latex/adn-latex.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adn-latex &&\
-    git clone https://gitlab.com/adn-latex/adnamc.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adnamc &&\
     git clone https://gitlab.com/adn-latex/codetools.git `kpsewhich -var-value TEXMFHOME`/tex/latex/codetools &&\
     git clone https://gitlab.com/adn-latex/adnlogos.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adnlogos &&\
     git clone https://gitlab.com/adn-latex/adnbeamertheme.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adnbeamertheme &&\
@@ -18,17 +17,8 @@ RUN (mkdir -p `kpsewhich -var-value TEXMFHOME`/tex/latex || true) &&\
     git clone https://gitlab.com/adn-latex/adnmemo.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adnmemo &&\
     git clone https://gitlab.com/adn-latex/adnreport.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adnreport &&\
     git clone https://gitlab.com/adn-latex/adnlanguages.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adnlanguages &&\
-    git clone https://gitlab.com/adn-latex/adnsurvey.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adnsurvey &&\
     git clone https://gitlab.com/adn-latex/adnsyllabus.git `kpsewhich -var-value TEXMFHOME`/tex/latex/adnsyllabus &&\
     
-    # Install auto-multiple-choice
-    apt-get update -qq &&\
-    apt-get install auto-multiple-choice -y &&\
-
-    # Link it in texmf
-    (mkdir -p `kpsewhich -var-value TEXMFHOME`/tex/latex/AMC || true) &&\
-    ln -s /usr/share/texmf/tex/latex/AMC/automultiplechoice.sty `kpsewhich -var-value TEXMFHOME`/tex/latex/AMC &&\
-
     # Hash to be sure to find our stuff
     texhash &&\
 
